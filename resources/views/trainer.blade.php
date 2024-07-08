@@ -94,58 +94,44 @@
                 </div>
             @endif
 
-            @can('تسجيل كورس')
-            <a class="btn btn-primary btn-sm" href="{{ route('registerin.create')}}">تسجيل</a>
-            @endcan
-
                 <div class="card-body">
-                    <div class="table-responsive">
-                        <table class="table mg-b-0 text-md-nowrap table-hover">
-                            <thead>
-                                <tr>
-                                    <th>#</th>
-                                    <th>اسم التصنيف</th>
-                                    <th>اسم المدرب</th>
-                                    <th>اسم الكورس</th>
-                                    <th>الوصف</th>
-                                    <th>العمر</th>
-                                    <th>عدد الطلاب</th>
-                                    <th>عدد الطلاب المسجلين</th>
-                                    <th>السعر</th>
-                                    <th>عدد الجلسات</th>
-                                    <th>تاريخ البداية</th>
-                                    <th>تاريخ النهاية</th>
-                                    <th>الوقت</th>
-                                    <th>الصورة</th>
-                                    <th>الحالة</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @foreach ($courses as $course)
+                        <div class="table-responsive">
+                            <table class="table mg-b-0 text-md-nowrap table-hover">
+                                <thead>
                                     <tr>
-                                        <td>{{ $loop->iteration }}</td>
-                                        <td>{{ $course->category->name }}</td>
-                                        <td><a href="{{ route('trainers', $course->trainer->id) }}">{{ $course->trainer->name }}</a></td>
-                                        <td>{{ $course->name }}</td>
-                                        <td>{{ $course->description }}</td>
-                                        <td>{{ $course->age }}</td>
-                                        <td>{{ $course->number_of_students }}</td>
-                                        <td>{{ $course->number_of_students_paid }}</td>
-                                        <td>{{ $course->price }}</td>
-                                        <td>{{ $course->number_of_sessions }}</td>
-                                        <td>{{ $course->start_date }}</td>
-                                        <td>{{ $course->end_date }}</td>
-                                        <td>{{ $course->time }}</td>
-                                        <td><img src="{{ asset('images/' . $course->photo) }}" alt="{{ $course->name }}" width="100" height="50"></td>
-                                        <td>{{ $course->status }}</td>
+                                        <th>#</th>
+                                        <th>اسم المدرب</th>
+                                        <th>المستوى التعليمي</th>
+                                        <th>الجنس</th>
+                                        <th>instagram</th>
+                                        <th>الشهادة</th>
+                                        <th>الصورة الشخصية</th>
+                                        <th>صورة الهوية</th>
+                                        <th>الإيميل</th>
+                                        <th>رقم الجوال</th>
+                                        <th>تاريخ الميلاد</th>
+                                        <th>لمحة عن المدرب</th>
                                     </tr>
-                                @endforeach
-                            </tbody>
-                        </table>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>#</td>
+                                            <td>{{ $trainers->name }}</td>
+                                            <td>{{ $trainers->educational_level }}</td>
+                                            <td>{{ $trainers->gender }}</td>
+                                            <td>{{ $trainers->instagram }}</td>
+                                            <td><img src="{{ asset('images/trainer/' . $trainers->certificate) }}" alt="{{ $trainers->name }}" width="100" height="50"></td>
+                                            <td><img src="{{ asset('images/trainer/' . $trainers->personal_photo) }}" alt="{{ $trainers->name }}" width="100" height="50"></td>
+                                            <td><img src="{{ asset('images/trainer/' . $trainers->identity_photo) }}" alt="{{ $trainers->name }}" width="100" height="50"></td>
+                                            <td>{{ $trainers->email }}</td>
+                                            <td>{{ $trainers->phone }}</td>
+                                            <td>{{ $trainers->birth_date }}</td>
+                                            <td>{{ $trainers->about }}</td>
+                                        </tr>
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
-                </div>
-            </form>
-        </div>
         </div>
         <script src="{{ URL::asset('assets/plugins/notify/js/notifIt.js') }}"></script>
         <script src="{{ URL::asset('assets/plugins/notify/js/notifit-custom.js') }}"></script>

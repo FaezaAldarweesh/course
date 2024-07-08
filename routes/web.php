@@ -31,6 +31,8 @@ use App\Http\Controllers\Student\registerController;
 
 Route::get('/',[CourseController::class, 'all_courses'])->name('welcome');
 
+Route::get('trainers/{id}',[TrainerController::class, 'all_trainers'])->name('trainers');
+
 Auth::routes();
 
 Route::group(['middleware' => ['auth']], function () {

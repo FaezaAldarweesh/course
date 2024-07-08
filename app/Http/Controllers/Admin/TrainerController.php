@@ -201,4 +201,17 @@ public function edit($id)
         }
     }
 
+//========================================================================================================================
+
+    public function all_trainers($id)
+    {
+        try {
+            $trainers = Trainer::findOrFail($id); 
+            return view('trainer', compact('trainers'));
+        } catch (\Exception $e) {
+            return redirect()->back()->with('error', 'فشل عرض المدرب: ' . $e->getMessage());
+        }
+    }
+
+
 }

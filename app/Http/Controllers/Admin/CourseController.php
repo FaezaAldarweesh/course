@@ -194,8 +194,7 @@ public function update(UpdateCoursesRequest $request, Course $course)
         try {
             $courses = Course::all();
             $categories = Category::all();
-            $trainers = Trainer::all();
-            return view('welcome', compact('courses','categories','trainers'));
+            return view('welcome', compact('courses','categories'));
         } catch (\Exception $e) {
             return redirect()->back()->with('error', 'Failed to show all courses: ' . $e->getMessage());
         }
