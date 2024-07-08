@@ -119,32 +119,32 @@ public function storeFile($file)
     
 //========================================================================================================================
 
-public function edit($id)
+public function edit(Course $course)
 {
-    $course = Course::find($id);
+    //$course = Course::find($id);
     $categories = Category::all();
     $trainers = Trainer::all();
+    //dd($course);
     return view('Admin.course.edit', compact('course','categories','trainers'));
 }
 
 //========================================================================================================================
 public function update(UpdateCoursesRequest $request, Course $course)
 {
+   // dd($course);
     try {
         $validatedData = $request->validated();
+
 
         if ($request->hasFile('photo')) {
             $photoName = $this->storeFile($validatedData['photo']);
 
             if ($course->photo && file_exists(public_path('images') . '/' . $course->photo)) {
                 unlink(public_path('images') . '/' . $course->photo);
-                File::delete(public_path('images/' . $course->photo));
             }
 
             $course->photo = $photoName;
         }
-
-        $number_of_students_paid = Course::select('number_of_students_paid')->get();
 
         $course->category_id = $validatedData['category_id'];
         $course->trainer_id = $validatedData['trainer_id'];
@@ -152,7 +152,6 @@ public function update(UpdateCoursesRequest $request, Course $course)
         $course->description = $validatedData['description'];
         $course->age = $validatedData['age'];
         $course->number_of_students = $validatedData['number_of_students'];
-        $course->number_of_students_paid = $number_of_students_paid;
         $course->price = $validatedData['price'];
         $course->number_of_sessions = $validatedData['number_of_sessions'];
         $course->start_date = $validatedData['start_date'];

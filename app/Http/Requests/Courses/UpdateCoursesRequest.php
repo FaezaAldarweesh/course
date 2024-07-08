@@ -21,21 +21,21 @@ class UpdateCoursesRequest extends FormRequest
      */
     public function rules(): array
     {
-        $courseId = $this->course->id ?? '';
+       // $courseId = $this->course->id ?? '';
     
         return [
             'category_id' => 'exists:categories,id',
             'trainer_id' => 'exists:trainers,id',
-            'name' => 'string|unique:courses' .$courseId ,
+            'name' => 'string|unique:courses,name,'.$this->course->id ,
             'description' => 'string',
             'age' => 'numeric|min:1',
             'number_of_students' => 'numeric|min:1',
             'price' => 'numeric|min:1',
             'number_of_sessions' => 'numeric|min:1',
-            'start_date' => 'date',
-            'end_date' => 'date',
+            'start_date' => 'required|date',
+            'end_date' => 'required|date|after_or_equal:start_date',
             'time' => 'string',
-            'photo' => 'image|mimes:jpeg,png,jpg,gif,svg',
+             'photo' => 'image|mimes:jpeg,png,jpg,gif,svg',
             'status' => 'string',
         ];
     }

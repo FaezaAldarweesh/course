@@ -43,10 +43,9 @@
                 <a class="btn btn-primary btn-sm" href="{{ route('course.index') }}">رجوع</a>
             </div>
         </div><br>
-        <form class="parsley-style-1" id="selectForm2" autocomplete="off" name="selectForm2"
-            action="{{ route('course.update', $course->id) }}" method="post" enctype="multipart/form-data">
-            @csrf
+        <form action="{{ route('course.update',$course->id) }}" method="POST" enctype="multipart/form-data">
             @method('PUT')
+            @csrf
 
             <div class="">
                 <div class="row mg-b-20">
@@ -61,7 +60,7 @@
 
                     <div class="parsley-input col-md-6" id="fnWrapper">
                         <label>اسم المدرب :</label>
-                        <select class="form-control form-control-sm mg-b-20" name="category_id" required>
+                        <select class="form-control form-control-sm mg-b-20" name="trainer_id" required>
                             @foreach ($trainers as $trainer)
                                 <option value="{{ $trainer->id }}" {{ $trainer->id == $trainer->trainer_id ? 'selected' : '' }}>{{ $trainer->name }}</option>
                             @endforeach
@@ -128,9 +127,9 @@
                     <div class="parsley-input col-md-6" id="fnWrapper">
                         <label>الحالة :</label>
                         <select id="status" name="status" class="form-control">
-                            <option value="paid" {{ $course->status == 'available' ? 'available' : '' }}>available</option>
-                            <option value="unpaid" {{ $course->status == 'unavailable' ? 'unavailable' : '' }}>unavailable</option>
-                            <option value="unpaid" {{ $course->status == 'completed' ? 'completed' : '' }}>completed</option>
+                            <option value="available" {{ $course->status == 'available' ? 'available' : '' }}>available</option>
+                            <option value="unavailable" {{ $course->status == 'unavailable' ? 'unavailable' : '' }}>unavailable</option>
+                            <option value="completed" {{ $course->status == 'completed' ? 'completed' : '' }}>completed</option>
                         </select>
                     </div>
 
