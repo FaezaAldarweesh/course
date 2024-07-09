@@ -6,14 +6,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+    <title>تسجيل الدخول</title>
 </head>
 <body>
     <div class="container">
         <div class="left"></div>
         <div class="right">
             <div class="login-container">
-                <h2>Login</h2>
+                <h2>تسجيل الدخول</h2>
                 <form method="POST" action="{{ route('login') }}">
                     @csrf
                     <input type="email" name="email" placeholder="Email" required>
@@ -28,7 +28,7 @@
                     <strong>{{ $message }}</strong>
                     </span>
                     @enderror
-                    <button type="submit">Login</button>
+                    <button type="submit">تسجيل الدخول</button>
                 </form>
                 <div class="form-footer">                                                     
                     {{-- <div>
@@ -37,7 +37,7 @@
                     </div> --}}
                     @if (Route::has('password.request'))
                     <a href="{{ route('password.request') }}">
-                        Forgot Your Password?
+                        هل نسيت كلمة السر؟
                     </a>
                 @endif                                                              
                 </div>

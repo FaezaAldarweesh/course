@@ -127,9 +127,9 @@
                     <div class="parsley-input col-md-6" id="fnWrapper">
                         <label>الحالة :</label>
                         <select id="status" name="status" class="form-control">
-                            <option value="available" {{ $course->status == 'available' ? 'available' : '' }}>available</option>
-                            <option value="unavailable" {{ $course->status == 'unavailable' ? 'unavailable' : '' }}>unavailable</option>
-                            <option value="completed" {{ $course->status == 'completed' ? 'completed' : '' }}>completed</option>
+                            <option value="available" {{ $course->status == 'available' ? 'available' : '' }}>متاح</option>
+                            <option value="unavailable" {{ $course->status == 'unavailable' ? 'unavailable' : '' }}>غير متاح</option>
+                            <option value="completed" {{ $course->status == 'completed' ? 'completed' : '' }}>مكتمل العدد</option>
                         </select>
                     </div>
 

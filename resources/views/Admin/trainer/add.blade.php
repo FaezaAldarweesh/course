@@ -85,13 +85,13 @@
                         <label> الجنس :</label>
                         <select id="gender" name="gender" class="form-control">
                             <option value="" disabled selected></option>
-                                <option value="female">female</option>
-                                <option value="male">male</option>
+                                <option value="female">أنثى</option>
+                                <option value="male">ذكر</option>
                         </select>
                     </div>
 
                     <div class="parsley-input col-md-6" id="fnWrapper">
-                        <label> instagram :</label>
+                        <label> انستاغرام :</label>
                         <input class="form-control form-control-sm mg-b-20" name="instagram" value="" required type="text">
                     </div>
 

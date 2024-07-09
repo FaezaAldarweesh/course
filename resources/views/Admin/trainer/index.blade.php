@@ -67,7 +67,7 @@
                                 <th>اسم المدرب</th>
                                 <th>المستوى التعليمي</th>
                                 <th>الجنس</th>
-                                <th>instagram</th>
+                                <th>انستاغرام</th>
                                 <th>الشهادة</th>
                                 <th>الصورة الشخصية</th>
                                 <th>صورة الهوية</th>
@@ -84,7 +84,11 @@
                                     <td>{{ $loop->iteration }}</td>
                                     <td>{{ $trainer->name }}</td>
                                     <td>{{ $trainer->educational_level }}</td>
-                                    <td>{{ $trainer->gender }}</td>
+                                     @if($trainer->gender == 'female' )
+                                    <td>أنثى</td>
+                                    @else
+                                    <td>ذكر</td>
+                                    @endif
                                     <td>{{ $trainer->instagram }}</td>
                                     <td><img src="{{ asset('images/trainer/' . $trainer->certificate) }}" alt="{{ $trainer->name }}" width="100" height="50"></td>
                                     <td><img src="{{ asset('images/trainer/' . $trainer->personal_photo) }}" alt="{{ $trainer->name }}" width="100" height="50"></td>

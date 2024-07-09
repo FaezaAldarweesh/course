@@ -85,7 +85,11 @@
                                     <td><img src="{{ asset('images/student/' . $student->personal_photo) }}" alt="{{ $student->name }}" width="100" height="50"></td>
                                     <td>{{ $student->birth_date }}</td>
                                     <td>{{ $student->educational_level }}</td>
-                                    <td>{{ $student->gender }}</td>
+                                    @if($student->gender == 'female' )
+                                    <td>أنثى</td>
+                                    @else
+                                    <td>ذكر</td>
+                                    @endif
                                     <td>{{ $student->location }}</td>
                                     <td>
                                         @can('تعديل طالب')

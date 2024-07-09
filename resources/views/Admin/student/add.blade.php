@@ -105,8 +105,8 @@
                         <label> الجنس :</label>
                         <select id="gender" name="gender" class="form-control">
                             <option value="" disabled selected></option>
-                                <option value="female">female</option>
-                                <option value="male">male</option>
+                                <option value="female">أنثى</option>
+                                <option value="male">ذكر</option>
                         </select>
                     </div>
        

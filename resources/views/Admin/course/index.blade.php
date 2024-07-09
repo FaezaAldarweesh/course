@@ -98,7 +98,13 @@
                                     <td>{{ $course->end_date }}</td>
                                     <td>{{ $course->time }}</td>
                                     <td><img src="{{ asset('images/' . $course->photo) }}" alt="{{ $course->name }}" width="100" height="50"></td>
-                                    <td>{{ $course->status }}</td>
+                                    @if($course->status == 'available')
+                                    <td>متاح</td>
+                                    @elseif($course->status == 'unavailable')
+                                    <td>غير متاح</td>
+                                    @else
+                                    <td>مكتمل العدد</td>
+                                    @endif
                                     <td>
                                         @can('تعديل كورس')
                                         <a class="btn btn-primary btn-sm" href="{{ route('course.edit', $course->id) }}">تعديل</a>

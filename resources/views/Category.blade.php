@@ -94,11 +94,30 @@
                 </div>
             @endif
 
-            @can('تسجيل كورس')
-            <a class="btn btn-primary btn-sm" href="{{ route('registerin.create')}}">تسجيل</a>
-            @endcan
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table mg-b-0 text-md-nowrap table-hover ">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>الاسم</th>
+                                <th>الصورة</th>
+                                <th>الوصف</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>#</td>
+                                <td>{{ $category->name }}</td>
+                                <td><img src="{{ asset('images/' . $category->photo) }}" alt="{{ $category->name }}" width="100" height="50"></td>
+                                <td>{{ $category->description }}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
 
-                <div class="card-body">
+                    <div class="card-body">
                     <div class="table-responsive">
                         <table class="table mg-b-0 text-md-nowrap table-hover">
                             <thead>
@@ -144,74 +163,6 @@
                         </table>
                     </div>
                 </div>
-
-                <div class="card-body">
-                        <div class="table-responsive">
-                            <table class="table mg-b-0 text-md-nowrap table-hover">
-                                <thead>
-                                    <tr>
-                                        <th>#</th>
-                                        <th>اسم المدرب</th>
-                                        <th>المستوى التعليمي</th>
-                                        <th>الجنس</th>
-                                        <th>instagram</th>
-                                        <th>الشهادة</th>
-                                        <th>الصورة الشخصية</th>
-                                        <th>صورة الهوية</th>
-                                        <th>الإيميل</th>
-                                        <th>رقم الجوال</th>
-                                        <th>تاريخ الميلاد</th>
-                                        <th>لمحة عن المدرب</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @foreach ($trainers as $trainer)
-                                        <tr>
-                                            <td>#</td>
-                                                <td>{{ $trainer->name }}</td>
-                                                <td>{{ $trainer->educational_level }}</td>
-                                                <td>{{ $trainer->gender }}</td>
-                                                <td>{{ $trainer->instagram }}</td>
-                                                <td><img src="{{ asset('images/trainer/' . $trainer->certificate) }}" alt="{{ $trainer->name }}" width="100" height="50"></td>
-                                                <td><img src="{{ asset('images/trainer/' . $trainer->personal_photo) }}" alt="{{ $trainer->name }}" width="100" height="50"></td>
-                                                <td><img src="{{ asset('images/trainer/' . $trainer->identity_photo) }}" alt="{{ $trainer->name }}" width="100" height="50"></td>
-                                                <td>{{ $trainer->email }}</td>
-                                                <td>{{ $trainer->phone }}</td>
-                                                <td>{{ $trainer->birth_date }}</td>
-                                                <td>{{ $trainer->about }}</td>
-                                            </tr>
-                                    @endforeach
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-
-            <div class="card-body">
-                <div class="table-responsive">
-                    <table class="table mg-b-0 text-md-nowrap table-hover ">
-                        <thead>
-                            <tr>
-                                <th>#</th>
-                                <th>الاسم</th>
-                                <th>الصورة</th>
-                                <th>الوصف</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach ($categories as $category)
-                                <tr>
-                                    <td>#</td>
-                                    <td>{{ $category->name }}</td>
-                                    <td><img src="{{ asset('images/' . $category->photo) }}" alt="{{ $category->name }}" width="100" height="50"></td>
-                                    <td>{{ $category->description }}</td>
-                                </tr>
-                            @endforeach
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-            </form>
-        </div>
         </div>
         <script src="{{ URL::asset('assets/plugins/notify/js/notifIt.js') }}"></script>
         <script src="{{ URL::asset('assets/plugins/notify/js/notifit-custom.js') }}"></script>

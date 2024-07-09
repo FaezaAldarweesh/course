@@ -76,7 +76,11 @@
                                     <td>{{ $loop->iteration }}</td>
                                     <td>{{ $StudentCourse->Student->name }}</td>
                                     <td>{{ $StudentCourse->Course->name }}</td>
-                                    <td>{{ $StudentCourse->status }}</td>
+                                    @if($StudentCourse->status == 'paid')
+                                    <td>مدفوع</td>
+                                    @else
+                                    <td>غير مدفوع</td>
+                                    @endif
                                     <td>
                                         @can('تعديل تسجيل الطالب')
                                         <a class="btn btn-primary btn-sm" href="{{ route('student_course.edit', $StudentCourse->id) }}">تعديل</a>

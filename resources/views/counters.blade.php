@@ -14,7 +14,7 @@
 				<div class="breadcrumb-header justify-content-between">
 					<div class="my-auto">
 						<div class="d-flex">
-							<span class="text-muted mt-1 tx-18 mr-2 mb-0"> {{Auth::user()->name}}/</span><h3 class="content-title mb-0 my-auto">Welcome</h3>
+							<span class="text-muted mt-1 tx-18 mr-2 mb-0"> {{Auth::user()->name}}/</span><h3 class="content-title mb-0 my-auto">مرحباً</h3>
 						</div>
 					</div>
 					<div class="d-flex my-xl-auto right-content">

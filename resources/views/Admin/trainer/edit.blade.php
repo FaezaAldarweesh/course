@@ -71,7 +71,7 @@
                     </div>
 
                     <div class="parsley-input col-md-6" id="fnWrapper">
-                        <label> instagram :</label>
+                        <label> انستاغرام :</label>
                         <input class="form-control form-control-sm mg-b-20" name="instagram" value="{{ $trainer->instagram }}" required type="text">
                     </div>
 

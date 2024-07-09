@@ -73,7 +73,11 @@
                                     <td>{{ $loop->iteration }}</td>
                                     <td>{{ $StudentCourse->Student->name }}</td>
                                     <td>{{ $StudentCourse->Course->name }}</td>
-                                    <td>{{ $StudentCourse->status }}</td>
+                                    @if($StudentCourse->status == 'paid')
+                                    <td>مدفوع</td>
+                                    @else
+                                    <td>غير مدفوع</td>
+                                    @endif
                                     <td>
                                         @can('حذف تسجيل')
                                         <button type="button" class="btn btn-danger btn-sm" data-toggle="modal"

@@ -2,13 +2,15 @@
 
 namespace App\Http\Controllers\Admin;
 
-use Illuminate\Support\Str;
-use Illuminate\Support\Facades\File;
-use Illuminate\Http\Exceptions\HttpResponseException;
-
+use App\Models\Course;
+use App\Models\Trainer;
 use App\Models\Category;
+
+use Illuminate\Support\Str;
 use App\Http\Controllers\Controller;
 
+use Illuminate\Support\Facades\File;
+use Illuminate\Http\Exceptions\HttpResponseException;
 use App\Http\Requests\Categories\StoreCategoryRequest;
 use App\Http\Requests\Categories\UpdateCategoryRequest;
 
@@ -153,5 +155,16 @@ public function edit($id)
     }
 
 //========================================================================================================================
+
+public function all_categories($id)
+{
+    try {
+        $category = Category::findOrFail($id); 
+        $courses = Course::where('category_id' , $id)->get();
+        return view('Category', compact('category' , 'courses'));
+    } catch (\Exception $e) {
+        return redirect()->back()->with('error', 'فشل عرض التصنيف: ' . $e->getMessage());
+    }
+}
 
 }

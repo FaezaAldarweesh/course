@@ -187,16 +187,17 @@ public function update(UpdateCoursesRequest $request, Course $course)
     }
 
 //========================================================================================================================
-
-    public function all_courses()
-    {
-        try {
-            $courses = Course::all();
-            $categories = Category::all();
-            return view('welcome', compact('courses','categories'));
-        } catch (\Exception $e) {
-            return redirect()->back()->with('error', 'Failed to show all courses: ' . $e->getMessage());
-        }
+public function all_courses()
+{
+    try {
+        $courses = Course::inRandomOrder()->take(3)->get();
+        $trainers = Trainer::inRandomOrder()->take(3)->get(); 
+        $categories = Category::inRandomOrder()->take(3)->get();
+        return view('welcome', compact('courses', 'trainers', 'categories'));
+    } catch (\Exception $e) {
+        return redirect()->back()->with('error', 'Failed to show all courses: ' . $e->getMessage());
     }
+}
+
 
 }

@@ -82,12 +82,12 @@
             @if (Route::has('login'))
                 <div class="header">
                     @auth
-                        <a href="{{ url('/home') }}">Home</a>
+                        <a href="{{ url('/home') }}">لوحة التحكم</a>
                     @else
                         <div>
-                            <a href="{{ route('login') }}">Log in</a>
+                            <a href="{{ route('login') }}">تسجيل الدخول</a>
                             @if (Route::has('register'))
-                                <a href="{{ route('register') }}">Register</a>
+                                <a href="{{ route('register') }}">تسجيل حساب</a>
                             @endif
                         </div>
                     @endauth
@@ -132,6 +132,53 @@
                             </table>
                         </div>
                     </div>
+
+                    <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table mg-b-0 text-md-nowrap table-hover">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>اسم التصنيف</th>
+                                    <th>اسم المدرب</th>
+                                    <th>اسم الكورس</th>
+                                    <th>الوصف</th>
+                                    <th>العمر</th>
+                                    <th>عدد الطلاب</th>
+                                    <th>عدد الطلاب المسجلين</th>
+                                    <th>السعر</th>
+                                    <th>عدد الجلسات</th>
+                                    <th>تاريخ البداية</th>
+                                    <th>تاريخ النهاية</th>
+                                    <th>الوقت</th>
+                                    <th>الصورة</th>
+                                    <th>الحالة</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach ($courses as $course)
+                                    <tr>
+                                        <td>{{ $loop->iteration }}</td>
+                                        <td><a href="{{ route('categories', $course->category->id) }}">{{ $course->category->name }}</a></td>
+                                        <td><a href="{{ route('trainers', $course->trainer->id) }}">{{ $course->trainer->name }}</a></td>
+                                        <td>{{ $course->name }}</td>
+                                        <td>{{ $course->description }}</td>
+                                        <td>{{ $course->age }}</td>
+                                        <td>{{ $course->number_of_students }}</td>
+                                        <td>{{ $course->number_of_students_paid }}</td>
+                                        <td>{{ $course->price }}</td>
+                                        <td>{{ $course->number_of_sessions }}</td>
+                                        <td>{{ $course->start_date }}</td>
+                                        <td>{{ $course->end_date }}</td>
+                                        <td>{{ $course->time }}</td>
+                                        <td><img src="{{ asset('images/' . $course->photo) }}" alt="{{ $course->name }}" width="100" height="50"></td>
+                                        <td>{{ $course->status }}</td>
+                                    </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
         </div>
         <script src="{{ URL::asset('assets/plugins/notify/js/notifIt.js') }}"></script>
         <script src="{{ URL::asset('assets/plugins/notify/js/notifit-custom.js') }}"></script>

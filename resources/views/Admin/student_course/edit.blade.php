@@ -75,8 +75,8 @@
                     <div class="parsley-input col-md-6" id="fnWrapper">
                         <label>الحالة :</label>
                         <select id="status" name="status" class="form-control">
-                            <option value="paid" {{ $StudentCourses->status == 'paid' ? 'selected' : '' }}>paid</option>
-                            <option value="unpaid" {{ $StudentCourses->status == 'unpaid' ? 'selected' : '' }}>unpaid</option>
+                            <option value="paid" {{ $StudentCourses->status == 'paid' ? 'selected' : '' }}>مدفوع</option>
+                            <option value="unpaid" {{ $StudentCourses->status == 'unpaid' ? 'selected' : '' }}>غير مدفوع</option>
                         </select>
                     </div>
 

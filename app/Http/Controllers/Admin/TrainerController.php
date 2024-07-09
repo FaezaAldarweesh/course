@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Models\Course;
 use App\Models\Trainer;
 
 use Illuminate\Support\Str;
@@ -207,7 +208,8 @@ public function edit($id)
     {
         try {
             $trainers = Trainer::findOrFail($id); 
-            return view('trainer', compact('trainers'));
+            $courses = Course::where('trainer_id' , $id)->get();
+            return view('trainer', compact('trainers' , 'courses'));
         } catch (\Exception $e) {
             return redirect()->back()->with('error', 'فشل عرض المدرب: ' . $e->getMessage());
         }

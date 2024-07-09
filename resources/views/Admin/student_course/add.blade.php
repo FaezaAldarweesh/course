@@ -95,8 +95,8 @@
                         <label>الحالة :</label>
                         <select id="status" name="status" class="form-control">
                             <option value="" disabled selected></option>
-                                <option value="paid">paid</option>
-                                <option value="unpaid">unpaid</option>
+                                <option value="paid">مدفوع</option>
+                                <option value="unpaid">غير مدفوع</option>
                         </select>
                     </div>
                 </div>                   
